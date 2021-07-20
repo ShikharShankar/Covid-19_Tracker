@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:covid_tracker/Screens/home_screen.dart';
+import 'package:covid_tracker/Screens/about_covid_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
   static const routName = 'LoadingScreen';
@@ -30,11 +31,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        //transitionDuration: Duration(milliseconds: 500),
-        pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
-        // transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        //   return FadeScaleTransition(animation: animation, child: child);
-        // },
+        pageBuilder: (context, animation, secondaryAnimation) => AboutCovid(),
       ),
     );
   }
