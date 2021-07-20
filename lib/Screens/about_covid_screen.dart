@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:video_player/video_player.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutCovid extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _AboutCovidState extends State<AboutCovid> {
     return await rootBundle.loadString('assets/info/info.txt');
   }
 
-  String info='Loading....';
+  String info = 'Loading....';
 
   void getData() async {
     info = await loadAsset();
@@ -43,6 +44,22 @@ class _AboutCovidState extends State<AboutCovid> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text("About Covid-19"),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              _scaffoldKey.currentState!.showSnackBar(
+                SnackBar(content: Text(
+                  'https://www.who.int/emergencies/diseases/novel-coronavirus-2019',
+                  textAlign: TextAlign.center,
+                ),action: SnackBarAction(
+                  label: 'Open',
+                  onPressed: ()=> launch('https://www.who.int/emergencies/diseases/novel-coronavirus-2019'),
+                ),),
+              );
+            },
+            icon: Icon(Icons.info_outline),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -51,7 +68,7 @@ class _AboutCovidState extends State<AboutCovid> {
             Padding(
               padding: EdgeInsets.all(15.0),
               child: Text(
-                info ,
+                info,
                 textAlign: TextAlign.center,
               ),
             ),
