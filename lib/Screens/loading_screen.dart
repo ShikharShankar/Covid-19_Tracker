@@ -1,3 +1,4 @@
+import 'package:covid_tracker/Screens/prevention_screen.dart';
 import 'package:covid_tracker/Services/api_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,7 +32,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => AboutCovid(),
+        pageBuilder: (context, animation, secondaryAnimation) => PreventionScreen(),
       ),
     );
   }
