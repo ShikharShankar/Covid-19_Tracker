@@ -33,7 +33,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => MapsScreen(),
+        pageBuilder: (context, animation, secondaryAnimation) => HomePage(
+          countriesData: countriesData,
+          locationVirusData: locationData,
+          virusData: data,
+          statesData: statesData,
+        ),
       ),
     );
   }
