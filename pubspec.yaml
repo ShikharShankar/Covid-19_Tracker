@@ -42,6 +42,7 @@ dependencies:
   flutter_webview_plugin: ^0.4.0
   pie_chart: ^5.0.0
   charts_flutter: ^0.11.0
+  fl_chart: ^0.36.3
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,7 @@ flutter:
     - assets/icons/
     - assets/videos/covid.mkv
     - assets/info/info.txt
+    - assets/covid_black.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

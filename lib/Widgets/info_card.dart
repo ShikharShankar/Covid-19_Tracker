@@ -13,7 +13,7 @@ class InfoCard extends StatelessWidget {
     required this.title,
     required this.effectedNum,
     required this.color,
-    required this.spot,
+    this.spot="",
   }) : super(key: key);
 
   @override
