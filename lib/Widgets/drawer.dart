@@ -22,7 +22,7 @@ class MyCustomClipper extends CustomClipper<Path> {
   }
 }
 
-Drawer buildDrawer(context, widget) {
+Drawer buildDrawer(context, isLight,widget) {
   return Drawer(
     child: Container(
       padding: EdgeInsets.all(10),
@@ -33,7 +33,7 @@ Drawer buildDrawer(context, widget) {
           Padding(
             padding: EdgeInsets.only(left: SizeConfig.blockSizeHorizontal * 2),
             child: Image.asset(
-              "assets/covid_black.png",
+              isLight ? "assets/covid_black.png" : "assets/covid_white.png",
               width: 160,
             ),
           ),
@@ -47,7 +47,7 @@ Drawer buildDrawer(context, widget) {
                   children: <Widget>[
                     Icon(
                       Icons.home,
-                      color: Colors.black,
+                      color: isLight ? Colors.black : Colors.white,
                     ),
                     SizedBox(
                       width: 10,
@@ -65,7 +65,7 @@ Drawer buildDrawer(context, widget) {
                   children: <Widget>[
                     Icon(
                       Icons.flag,
-                      color: Colors.black,
+                      color: isLight ? Colors.black : Colors.white,
                     ),
                     SizedBox(
                       width: 10,
@@ -84,7 +84,7 @@ Drawer buildDrawer(context, widget) {
                     SvgPicture.asset(
                       "assets/icons/india.svg",
                       height: yMargin(4.5),
-                      color: Colors.black,
+                      color: isLight ? Colors.black : Colors.white,
                     ),
                     SizedBox(
                       width: 5,
@@ -105,7 +105,7 @@ Drawer buildDrawer(context, widget) {
                       SvgPicture.asset(
                         "assets/icons/virus.svg",
                         height: yMargin(3.3),
-                        color: Colors.black,
+                        color: isLight ? Colors.black : Colors.white,
                       ),
                     SizedBox(
                       width: 10,
@@ -123,7 +123,7 @@ Drawer buildDrawer(context, widget) {
                   children: <Widget>[
                     Icon(
                       Icons.refresh,
-                      color: Colors.black,
+                      color: isLight ? Colors.black : Colors.white,
                     ),
                     SizedBox(
                       width: 10,
@@ -151,7 +151,7 @@ Drawer buildDrawer(context, widget) {
                   children: <Widget>[
                     Icon(
                       Icons.info,
-                      color: Colors.black,
+                      color: isLight ? Colors.black : Colors.white,
                     ),
                     SizedBox(
                       width: 10,

@@ -1,6 +1,7 @@
 import 'package:covid_tracker/Screens/live_map_screen.dart';
 import 'package:covid_tracker/Screens/prevention_screen.dart';
 import 'package:covid_tracker/Services/api_data.dart';
+import 'package:covid_tracker/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -62,14 +63,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
         children: <Widget>[
           SvgPicture.asset(
             "assets/icons/virus.svg",
-            height: 200.0,
+            height: yMargin(22),
           ),
           Column(
             children: <Widget>[
               Text(
                 "Covid Tracker",
                 style: TextStyle(
-                  fontSize: 40.0,
+                  fontSize: yMargin(4),
                   fontWeight: FontWeight.bold,
                   color: Colors.blue,
                 ),
@@ -80,7 +81,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
             children: <Widget>[
               Text(
                 'Fetching data, loading...\n', //  \n is used to provide space
-                style: TextStyle(fontSize: 25.0),
+                style: TextStyle(fontSize: yMargin(3)),
               ),
               spinKit1,
             ],

@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:covid_tracker/Data/country_virus_data.dart';
 import 'package:covid_tracker/Data/virus_data.dart';
 import 'package:covid_tracker/Screens/live_map_screen.dart';
@@ -39,6 +40,8 @@ class _HomePageState extends State<HomePage> {
 
   int index = 0;
   List<CountryVirusData> countriesData = [];
+  bool isLight=true;
+
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void updateUI(dynamic virusData) {
@@ -121,16 +124,27 @@ class _HomePageState extends State<HomePage> {
         title: Text(
             "Covid Tracker",
             style: TextStyle(
-              color: Colors.black,
+              color: isLight ? Colors.black :Colors.white,
               fontSize: yMargin(3.2),
               fontFamily: 'Titillium',
             ),
         ),
         iconTheme: IconThemeData(color: Colors.blue),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.lightbulb_outline),
+              onPressed: () {
+                isLight ? AdaptiveTheme.of(context).setDark() : AdaptiveTheme.of(context).setLight();
+                setState(() {
+                  isLight = !isLight;
+                });
+              }
+          )
+        ],
       ),
       drawer: ClipPath(
         clipper: MyCustomClipper(),
-        child: buildDrawer(context, widget),
+        child: buildDrawer(context, isLight,widget),
       ),
       body: SafeArea(
         child: Column(
@@ -213,6 +227,7 @@ class _HomePageState extends State<HomePage> {
               widget: widget,
               cases: data.confirmedCases,
               deaths: data.deaths,
+              isLight: isLight,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: xMargin(5)),
@@ -246,6 +261,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+            ),
+            PreventionCard(
+              isLight: isLight,
             ),
           ],
         ),

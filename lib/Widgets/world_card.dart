@@ -5,10 +5,11 @@ import 'package:covid_tracker/constants.dart';
 
 class WorldCard extends StatelessWidget {
 
+  final bool isLight;
   final widget;
   final cases;
   final deaths;
-  const WorldCard({ Key? key, this.widget, this.cases, this.deaths})
+  const WorldCard({Key? key, this.widget, this.cases, this.deaths, required this.isLight})
       : super(key: key);
 
   @override
@@ -44,7 +45,9 @@ class WorldCard extends StatelessWidget {
                       "WorldWide Scenario",
                       style: TextStyle(
                         fontSize: yMargin(2.5),
-                        color: Colors.black.withOpacity(.5),
+                        color: isLight
+                            ? Colors.black.withOpacity(.5)
+                            : Colors.white.withOpacity(.6),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -58,7 +61,7 @@ class WorldCard extends StatelessWidget {
                         style: TextStyle(
                             fontSize: yMargin(1.8),
                             fontFamily: "Kayak",
-                            color: Colors.black,
+                            color: isLight ? Colors.black : Colors.white,
                         ),
                       ),
                     ),
@@ -74,7 +77,7 @@ class WorldCard extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: yMargin(7),
+                top: yMargin(4),
                 right: xMargin(4.5),
                 child: SvgPicture.asset(
                   "assets/icons/patient.svg",

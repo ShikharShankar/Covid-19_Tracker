@@ -4,7 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:covid_tracker/constants.dart';
 
 class PreventionCard extends StatelessWidget {
-  //const PreventionCard({Key? key}) : super(key: key);
+  final bool isLight;
+  const PreventionCard({
+    Key ?key,
+    required this.isLight,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class PreventionCard extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: xMargin(5),
-          vertical: yMargin(2.5),
+          vertical: yMargin(1),
         ),
         width: double.infinity,
         child: Stack(
@@ -29,13 +33,13 @@ class PreventionCard extends StatelessWidget {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(
-                left: xMargin(33),
+                left: xMargin(30),
                 top: yMargin(2),
               ),
               width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color(0xFFE0E0E0),Color(0xFF66BB6A)],
+                  colors: isLight ? [Color(0xFFE0E0E0),Color(0xFF66BB6A)] : [Color(0xFFE0E0E0),Color(0xFF66BB6A)],
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
