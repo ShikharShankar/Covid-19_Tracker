@@ -2,7 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:covid_tracker/Data/country_virus_data.dart';
 import 'package:covid_tracker/Data/virus_data.dart';
 import 'package:covid_tracker/Screens/live_map_screen.dart';
-import 'package:covid_tracker/Screens/prevention_screen.dart';
+import 'package:covid_tracker/Screens/states_screen.dart';
 import 'package:covid_tracker/Widgets/drawer.dart';
 import 'package:covid_tracker/Widgets/info_card.dart';
 import 'package:covid_tracker/Widgets/prevention_card.dart';
@@ -242,7 +242,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => StateInfoScreen(stateVirusData: widget.statesData,)),);
+                    },
                     child: WidgetCard(
                       srcAsset: "assets/icons/india.svg",
                       title: "Indian States",
